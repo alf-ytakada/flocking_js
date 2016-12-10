@@ -212,14 +212,14 @@
 	        }
 	    };
 	
-	    $("input[name='range']").on("change", function (e) {
-	        modRange($(e.target).val());
+	    $("input[name='range']").on("change input", function (e) {
+	        modRange(parseFloat($(e.target).val()));
 	    });
-	    $("input[name='distance']").on("change", function (e) {
-	        modDistance($(e.target).val());
+	    $("input[name='distance']").on("change input", function (e) {
+	        modDistance(parseFloat($(e.target).val()));
 	    });
-	    $("input[name='sep_distance']").on("change", function (e) {
-	        modSepDistance($(e.target).val());
+	    $("input[name='sep_distance']").on("change input", function (e) {
+	        modSepDistance(parseFloat($(e.target).val()));
 	    });
 	
 	    $("#btn_debug").on("click", function () {
@@ -30552,6 +30552,14 @@
 	            // 向きを変える
 	            var angle_deg = this.velocity.horizontalAngleDeg();
 	            this.rotation = angle_deg;
+	            //// 急激には変えない
+	            //const abs_angle_diff    = Math.abs(this.rotation - angle_deg);
+	            //if (abs_angle_diff > 5) {
+	            //    this.rotation   += (angle_deg - this.rotation > 0) ? 5 : -5;
+	            //}
+	            //else {
+	            //    this.rotation   = angle_deg;
+	            //}
 	        }
 	
 	        ////////////////////////////////
@@ -32087,12 +32095,10 @@
 	                        this.stage.removeChild(old);
 	                    }
 	                    if (this.debug) {
-	                        var circle = new createjs.Shape();
-	                        circle.graphics.beginStroke("#ff0000").drawCircle(0, 0, obj.view_length);
-	                        circle.x = obj.x;
-	                        circle.y = obj.y;
-	                        circle.name = name;
-	                        this.stage.addChild(circle);
+	                        var arc = new createjs.Shape();
+	                        arc.graphics.beginStroke("#f00").moveTo(obj.x, obj.y).arc(obj.x, obj.y, obj.view_length, (obj.rotation - obj.view_angle) * (Math.PI / 180), (obj.rotation + obj.view_angle) * (Math.PI / 180)).lineTo(obj.x, obj.y);
+	                        arc.name = name;
+	                        this.stage.addChild(arc);
 	                    }
 	                    /////////////
 	                }
