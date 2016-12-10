@@ -204,7 +204,7 @@ class Bird extends createjs.Sprite {
     // デバッグ用：デバッグ線を消す
     removeDebugLines() {
         const lineDebug = this.name + "debug";
-        const s = window.gm.getStage();
+        const s = window.gm.stage;
         for (const name of [lineDebug]) {
             // 全部消す
             let obj;
@@ -226,7 +226,7 @@ class Bird extends createjs.Sprite {
         g.endStroke();
         let shape   = new createjs.Shape(g);
         shape.name  = this.name + "debug";
-        window.gm.getStage().addChild(shape);
+        window.gm.stage.addChild(shape);
     }
     ////////////////////////////////
 
