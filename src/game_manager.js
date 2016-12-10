@@ -61,12 +61,18 @@ class GameManager {
                 this.stage.removeChild(old);
             }
             if (this.debug) {
-                let circle  = new createjs.Shape();
-                circle.graphics.beginStroke("#ff0000").drawCircle(0, 0, obj.view_length);
-                circle.x    = obj.x;
-                circle.y    = obj.y;
-                circle.name = name;
-                this.stage.addChild(circle);
+                let arc = new createjs.Shape();
+                arc.graphics
+                    .beginStroke("#f00")
+                    .moveTo(obj.x, obj.y)
+                    .arc(
+                        obj.x, obj.y, obj.view_length, 
+                        (obj.rotation - obj.view_angle) * (Math.PI / 180),
+                        (obj.rotation + obj.view_angle) * (Math.PI / 180),
+                    )
+                    .lineTo(obj.x, obj.y);
+                arc.name    = name;
+                this.stage.addChild(arc);
             }
             /////////////
         }

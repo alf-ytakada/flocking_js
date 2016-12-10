@@ -103,14 +103,14 @@ $(() => {
         }
     }
 
-    $("input[name='range']").on("change", (e) => {
-        modRange($(e.target).val());
+    $("input[name='range']").on("change input", (e) => {
+        modRange(parseFloat($(e.target).val()));
     });
-    $("input[name='distance']").on("change", (e) => {
-        modDistance($(e.target).val());
+    $("input[name='distance']").on("change input", (e) => {
+        modDistance(parseFloat($(e.target).val()));
     });
-    $("input[name='sep_distance']").on("change", (e) => {
-        modSepDistance($(e.target).val());
+    $("input[name='sep_distance']").on("change input", (e) => {
+        modSepDistance(parseFloat($(e.target).val()));
     });
 
     $("#btn_debug").on("click", () => {

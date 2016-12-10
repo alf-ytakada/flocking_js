@@ -197,6 +197,14 @@ class Bird extends createjs.Sprite {
         // 向きを変える
         const angle_deg = this.velocity.horizontalAngleDeg();
         this.rotation   = angle_deg;
+        //// 急激には変えない
+        //const abs_angle_diff    = Math.abs(this.rotation - angle_deg);
+        //if (abs_angle_diff > 5) {
+        //    this.rotation   += (angle_deg - this.rotation > 0) ? 5 : -5;
+        //}
+        //else {
+        //    this.rotation   = angle_deg;
+        //}
     }
 
     ////////////////////////////////
