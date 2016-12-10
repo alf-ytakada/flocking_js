@@ -73,7 +73,7 @@
 	    circle.y = 100;
 	
 	    tweenjs.Tween.get(circle, { loop: true }).to({ x: 400 }, 1000, createjs.Ease.getPowInOut(4)).to({ alpha: 0, y: 175 }, 500, createjs.Ease.getPowInOut(2)).to({ alpha: 0, y: 225 }, 100).to({ alpha: 1, y: 200 }, 500, createjs.Ease.getPowInOut(2)).to({ x: 100 }, 800, createjs.Ease.getPowInOut(2));
-	    //gm.getStage().addChild(circle);
+	    //gm.stage.addChild(circle);
 	
 	    //createjs.Ticker.addEventListener("tick", stage);
 	
@@ -98,11 +98,11 @@
 	        Assets.spriteSheets.tori = spriteSheet;
 	        // 初回生成
 	        for (var i = 0; i < 30; i++) {
-	            addBird(gm.getStage().canvas.width / 2, gm.getStage().canvas.height / 2);
+	            addBird(gm.stage.canvas.width / 2, gm.stage.canvas.height / 2);
 	        }
 	    });
 	    // マウスクリックで追加
-	    gm.getStage().on("stagemousedown", function (ev) {
+	    gm.stage.on("stagemousedown", function (ev) {
 	        console.log("x:" + ev.stageX + ", y:" + ev.stageY);
 	        addBird(ev.stageX, ev.stageY);
 	    });
@@ -30562,7 +30562,7 @@
 	        key: "removeDebugLines",
 	        value: function removeDebugLines() {
 	            var lineDebug = this.name + "debug";
-	            var s = window.gm.getStage();
+	            var s = window.gm.stage;
 	            var _arr = [lineDebug];
 	            for (var _i = 0; _i < _arr.length; _i++) {
 	                var name = _arr[_i];
@@ -30592,7 +30592,7 @@
 	            g.endStroke();
 	            var shape = new createjs.Shape(g);
 	            shape.name = this.name + "debug";
-	            window.gm.getStage().addChild(shape);
+	            window.gm.stage.addChild(shape);
 	        }
 	        ////////////////////////////////
 	
