@@ -18,17 +18,25 @@ canvas {
 </head>
 <body>
 	<div>
-		<button class="btn btn-info" id="btn_debug">デバッグON/OFF</button><br>
-		<button class="btn btn-info" id="btn_mouse_tracking">マウストラッキングON/OFF(親鳥がマウスに向かうようになります)</button><br>
 		<div class="row-fluid">
-			<div class="col-sm-4">
+			<div class="col-sm-6">
+				<button class="btn btn-info btn-block" id="btn_debug">デバッグON/OFF</button><br>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="col-sm-6">
+				<button class="btn btn-info btn-block" id="btn_mouse_tracking">マウストラッキングON/OFF(親鳥がマウスに向かうようになります)</button><br>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="col-md-4">
 			視界の視野角度（<span id="range">110</span>度）：<input name="range" type="range" min=0 max=180 value=110><br>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 			視界の距離（<span id="distance">100</span>）：   <input name="distance" type="range" min=0 max=300 value=100><br>
 			</div>
-			<div class="col-sm-4">
-			分離距離（<span id="sep_distance">50</span>）： <input name="sep_distance" type="range" min=0 max=200 value=50><br>
+			<div class="col-md-4">
+			分離距離（<span id="sep_distance">50</span>）： <input name="sep_distance" type="range" min=0 max=150 value=50><br>
 			</div>
 		</div>
 	</div>
